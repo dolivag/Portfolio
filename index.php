@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+//Added some external Google fonts, Font-Awesome and the style.css archive
+
 <head>
     <link rel="stylesheet" href="./footer.php">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
@@ -17,12 +19,13 @@
 
 <body>
 
-
+    //The page's header is included from an external .php archive
     <?php include 'header.php'; ?>
 
 
     <main>
         <nav class="nav-bar">
+            //These will be the 5 row-buttons. Their reference is none, since it's a single-page project
             <ul class="nav-links">
                 <li><a href="#">Full bio</a></li>
                 <li><a href="#">My works</a></li>
@@ -32,6 +35,7 @@
             </ul>
         </nav>
         <div class="favourites">
+            //The 3 medium items in the middle of the page will have the card format, in order to keep a same style to all of them
             <div class="favourites-card">
                 <a href="#"><img src="./images/HTML5_Logo_256.png" alt="html5 logo"></a>
                 <h3>HTML5</h3>
@@ -50,7 +54,7 @@
         </div>
         <div class="content">
             <article class="article">
-
+                //Articles will keep almost the same format that cards, to keep the page organised
                 <h4 class="article-title">Title1</h4>
                 <div class="content-image">
                     <p class="article-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente,
@@ -89,8 +93,9 @@
         </div>
     </main>
 
-    <footer class="page-footer">
 
+    <footer class="page-footer">
+        //Footer is also added from an external .php archive, so it can be reused
         <?php include 'footer.php'; ?>
 
     </footer>
