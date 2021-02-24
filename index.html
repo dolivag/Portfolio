@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <meta name="author" content="Daniel Oliva Gómez">
+
+    <!-- Bootstrap is both downloaded and linked through CDN. 
+        The downloaded version is below, and commented since we will be using the CDN one -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;600&display=swap" rel="stylesheet">
+
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+    <title>DOG - PHP-M4</title>
+</head>
+
+<body>
+
+    <!--****************************Modal login****************************-->
+
+    <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login-title"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-title text-center">
+                        <h4>Login</h4>
+                    </div>
+                    <div class="d-flex flex-column text-center">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email1"
+                                    placeholder="Your email address...">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password1"
+                                    placeholder="Your password...">
+                            </div>
+                            <button type="button" class="btn btn-success btn-block btn-round">Login</button>
+                        </form>
+
+                        <div class="text-center text-muted delimiter">or use a social network</div>
+                        <div class="d-flex justify-content-center social-buttons">
+                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                data-placement="top" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                data-placement="top" title="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                data-placement="top" title="Linkedin">
+                                <i class="fab fa-linkedin"></i>
+                            </button>
+                            </di>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <div class="signup-section">Not a member yet? <a href="#a" class="text-info"> Sign Up</a>.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--****************************Modal sign up****************************-->
+
+    <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="modal-signup-title"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-title text-center">
+                        <h4>Sign Up</h4>
+                    </div>
+                    <div class="d-flex flex-column text-center">
+                        <form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="name" class="form-control" id="name" placeholder="Name">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="last-name" class="form-control" id="last-name"
+                                            placeholder="Lastname">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="emal" class="form-control" id="email" placeholder="Enter your email...">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="password1" class="form-control" id="password1"
+                                            placeholder="Your password">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="password2" class="form-control" id="password2"
+                                            placeholder="Confirm your password">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-success btn-block btn-round">Sign up</button>
+                        </form>
+
+                        <div class="text-center text-muted delimiter">or use a social network</div>
+                        <div class="d-flex justify-content-center social-buttons">
+                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                data-placement="top" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                data-placement="top" title="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip"
+                                data-placement="top" title="Linkedin">
+                                <i class="fab fa-linkedin"></i>
+                            </button>
+                            </di>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <div class="login-section">Are you already a member? <a href="#a" class="text-info"> Login</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--****************************Navigation bar section****************************-->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <div class="navbar-logo">
+                <img src="img/logo.png" alt="DOG Logo" class="m-xs-0 mx-sm-auto logo-brand img-fluid">
+            </div>
+
+
+            <div class="d-inline-flex  mx-auto d-lg-none">
+                <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#modal-login">Login</a>
+                <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#modal-signup">Sign up</a>
+            </div>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto text-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Images <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#colors">Colors</a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-login">Login</a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-signup">Sign up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--****************************Carousel section****************************-->
+
+    <div class="container">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/slide1.webp" class="d-block w-100 " alt="Slide 1">
+                    <div class="carousel-caption d-block">
+                        <h2>We'll take care of you</h2>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slide2.webp" class="d-block w-100 " alt="Slide 2">
+                    <div class="carousel-caption d-md-block">
+                        <h2>Enjoy a massage</h2>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slide3.webp" class="d-block w-100" style="width: auto; height: 760px;" alt="Slide 3">
+                    <div class="carousel-caption d-md-block">
+                        <h2>Relax at our resort</h2>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slide4.webp" class="d-block w-100" alt="Slide 4">
+                    <div class="carousel-caption d-md-block">
+                        <h2>Get a walk in the woods</h2>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slide5.webp" class="d-block w-100" alt="Slide 5">
+                    <div class="carousel-caption d-md-block">
+                        <h2>Live your own adventure</h2>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" role="button" href="#carouselExampleCaptions" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+            </a>
+            <a class="carousel-control-next" role="button" href="#carouselExampleCaptions" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+            </a>
+        </div>
+    </div>
+
+
+    <!--****************************Colors section****************************-->
+
+    <section id="colors">
+        <div class="colors-content container text-center">
+            <h2 class="colors-title mb-5">Modified colors</h2>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-6 color-description">
+                    <h4 class="text-right">Text primary:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors primary-btn ">
+                        <h4 class="text-primary text-left">Text primary</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4 class="text-right">Text secondary:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors secondary-btn">
+                        <h4 class="text-secondary text-left">Text secondary</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4 class="text-right">Text success:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors success-btn ">
+                        <h4 class="text-success text-left">Text sucess</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4 class="text-right">Text danger:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors danger-btn">
+                        <h4 class="text-danger text-left">Text danger</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4 class="text-right">Text warning:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors warning-btn">
+                        <h4 class="text-warning text-left">Text warning</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4 class="text-right">Text info:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors info-btn">
+                        <h4 class="text-info text-left">Text info</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4 class="text-right">Text light:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors light-btn">
+                        <h4 class="text-light text-left">Text light</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4 class="text-right">Text dark:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors dark-btn">
+                        <h4 class="text-dark text-left">Text dark</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4 class="text-right">Text muted:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors muted-btn">
+                        <h4 class="text-muted text-left">Text muted</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4 class="text-right">Text white:</h4>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-none float-left btn-colors white-btn">
+                        <h4 class="text-white text-left">Text white</h4>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--****************************Footer****************************-->
+
+    <footer class="bg-dark text-center text-white">
+        <div class="container p-4">
+            <section class="mb-4">
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i
+                        class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i
+                        class="fab fa-google"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i
+                        class="fab fa-instagram"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i
+                        class="fab fa-github"></i></a>
+            </section>
+            <section class="">
+                <form action="">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-auto">
+                            <p class="pt-2">
+                                <strong>Sign up for our newsletter</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-5 col-12">
+                            <div class="form-outline form-white mb-4">
+                                <input type="email" id="form5Example2" class="form-control" />
+                                <label class="form-label" for="form5Example2">Email address</label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-light mb-4">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-white" href="#">Daniel Oliva Gómez</a>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Downloaded JavaScript. Commented because we will use the linked CDN -->
+    <!--<script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

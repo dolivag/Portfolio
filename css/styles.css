@@ -1,0 +1,172 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+  color: black;
+}
+
+ a:hover {
+   text-decoration: none;
+ }
+
+.container {
+    padding: 2rem 0rem;
+  }
+    
+  .modal-header {
+    .close {
+      margin-top: -1.5rem;
+    }
+  }
+  
+  .form-title {
+    margin: -2rem 0rem 2rem;
+  }
+  
+  .btn-round {
+    border-radius: 2rem;
+  }
+  
+  .delimiter {
+    padding: 1rem;  
+  }
+  
+  .social-buttons .btn {
+      margin: 0 5px ;
+  }
+  
+  .signup-section {
+    padding: 0.3rem 0rem;
+  }
+
+  #carouselExampleCaptions {
+    padding-top: 60px;
+  }
+
+  .btn-colors {
+    width: 200px;
+    margin: 5px;
+    justify-content: center;
+    transition: all 0.7s ease-out;
+  }
+
+  .logo-brand {
+    max-width: 120px;
+    min-width: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+
+/********Color buttons behaviour. Each button takes the background color of the text when the cursor is over it***********/
+
+.primary-btn:hover{
+  background: #28a745;
+  color: white;
+}
+
+.secondary-btn:hover{
+  background: #0e5c20;
+  color:white;
+}
+
+.success-btn:hover{
+  background: #3841fd;
+  color:white;
+}
+
+.danger-btn:hover{
+  background: #f25822;
+  color:white;
+}
+
+.warning-btn:hover{
+  background: #f5cf4a;
+  color:white;
+}
+
+.info-btn:hover{
+  background: #4cc3d9;
+  color:white;
+}
+
+.light-btn:hover{
+  background: #999999;
+  color:white;
+}
+
+.dark-btn:hover{
+  background: #3b3b3b;
+  color:white;
+}
+
+.muted-btn:hover{
+  background: #ad3232;
+  color:white;
+}
+
+.white-btn:hover{
+  background: #cccccc;
+  color:white;
+}
+
+
+/****************************Change color classes****************************/
+
+.text-primary  {
+  color: #28a745 !important;
+}
+
+.text-secondary  {
+  color: #0e5c20 !important;
+}
+
+.text-success {
+  color: #3841fd !important;
+}
+
+.text-danger {
+  color: #f25822 !important;
+}
+
+.text-warning {
+  color: #f5cf4a !important;
+}
+
+.text-info {
+  color: #4cc3d9 !important;
+}
+
+.text-light {
+  color: #999999 !important;
+}
+
+.text-dark {
+  color: #3b3b3b !important;
+}
+
+.text-muted {
+  color: #ad3232 !important;
+}
+
+.text-white {
+  color: #cccccc !important;
+}
+
+
+
+
+/****************************Media queries****************************/
+
+@media (min-width: 576px){
+  .modal-dialog {
+    max-width: 400px;
+    
+    .modal-content {
+      padding: 1rem;
+    }
+  }
+}
