@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "25e116d1-2f00-4abe-bb52-682b172c7de6",
+		"name": "Colection-Nivel1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request-Ejercicio3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel1/Nivel1/public/saludo/Dani",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel1",
+						"Nivel1",
+						"public",
+						"saludo",
+						"Dani"
+					]
+				},
+				"description": "Guardado el request del ejercicio 3, Nivel 1, de la  Tasca 9 de PHP"
+			},
+			"response": []
+		}
+	]
+}

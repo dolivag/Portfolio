@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "a59719c2-5d2d-4d12-a31a-70c4330484d0",
+		"name": "Collection-Nivel2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request1-Nivel2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises"
+					]
+				},
+				"description": "Prueba de la página de inicio desde GET"
+			},
+			"response": []
+		},
+		{
+			"name": "Request2-Nivel2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises"
+					]
+				},
+				"description": "Método POST sobre página países"
+			},
+			"response": []
+		},
+		{
+			"name": "Request3-Nivel2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises/Francia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises",
+						"Francia"
+					]
+				},
+				"description": "Método GET sobre un país en concreto"
+			},
+			"response": []
+		},
+		{
+			"name": "Request4-Nivel2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises/Francia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises",
+						"Francia"
+					]
+				},
+				"description": "Método PUT sobre un país"
+			},
+			"response": []
+		},
+		{
+			"name": "Request5-Nivel2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises/Francia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises",
+						"Francia"
+					]
+				},
+				"description": "Método DELETE sobre un país"
+			},
+			"response": []
+		},
+		{
+			"name": "Request6-Nivel2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises/Francia/departamentos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises",
+						"Francia",
+						"departamentos"
+					]
+				},
+				"description": "Método GET sobre página de departamentos de un país"
+			},
+			"response": []
+		},
+		{
+			"name": "Request7-Nivel2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises/Francia/departamentos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises",
+						"Francia",
+						"departamentos"
+					]
+				},
+				"description": "Método POST sobre página de departamentos de un país"
+			},
+			"response": []
+		},
+		{
+			"name": "Request8-Nivel2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises/Francia/departamentos/Champagne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises",
+						"Francia",
+						"departamentos",
+						"Champagne"
+					]
+				},
+				"description": "Método GET sobre un departamento de un país"
+			},
+			"response": []
+		},
+		{
+			"name": "Request9-Nivel2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises/Francia/departamentos/Champagne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises",
+						"Francia",
+						"departamentos",
+						"Champagne"
+					]
+				},
+				"description": "Método PUT sobre un departamento de un país"
+			},
+			"response": []
+		},
+		{
+			"name": "Request10-Nivel2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/PHP_M9/Nivel2/Nivel2/public/paises/Francia/departamentos/Champagne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"PHP_M9",
+						"Nivel2",
+						"Nivel2",
+						"public",
+						"paises",
+						"Francia",
+						"departamentos",
+						"Champagne"
+					]
+				},
+				"description": "Método DELETE sobre un departamento de un país"
+			},
+			"response": []
+		}
+	]
+}
