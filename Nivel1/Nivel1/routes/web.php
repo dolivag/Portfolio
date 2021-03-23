@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\PersonalController;
-use App\Http\Controllers\SaludoController;
+use App\Http\Controllers\Saludo1Controller;
+use App\Http\Controllers\Saludo2Controller;
+use App\Http\Controllers\Saludo3Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 //Ejercicio 2
-//Vista1 mediante controlador
-Route::get('/saludo/{nombre?}', [SaludoController::class, 'saludar']);
+//Vista1
+Route::get('/saludo/{nombre?}', [Saludo1Controller::class, 'saludar']);
+Route::get('/saludo', [Saludo1Controller::class, 'bienvenida']);
 
-//Vista2 mediante función anónima
-Route::get('/bienvenida', function () {
-    return "Disfruta de nuestra página y no dudes en contactarnos";
-});
+//Vista2
+Route::get('/saludo2', [Saludo2Controller::class, 'get']);
+
+//Vista3
+Route::get('/saludo3', [Saludo3Controller::class, 'get']);
 
 Route::get('/personal/{nombre}', [PersonalController::class, 'show']);
