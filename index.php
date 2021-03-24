@@ -12,10 +12,13 @@ and open the template in the editor.
     require_once 'controllers/compres.php';
     $compra = new Compra;
     $total = 0;
-    // Tasks list
+
+    //
     $compres = $compra->list();
     ?>
 
+
+    <!--Main page header: title and description-->
     <div class="container mx-auto">
         <div class="page-header">
 
@@ -25,10 +28,10 @@ and open the template in the editor.
 
     </div>
 
+    <!--Shows the table with the current data into the shopping list item-->
     <div class="container p-4">
         <a href="insereix.php" class="btn btn-primary btn-lg btn-block mr-1">Nou producte</a>
         <div class="row">
-
             <div class="col-md-12">
                 <table class="table my-2">
                     <thead class="table-dark">
@@ -49,6 +52,8 @@ and open the template in the editor.
                                 <td><?php echo $compra['quantitat'] ?></td>
                                 <td><?php echo $compra['preu'] ?></td>
                                 <td><?php echo $compra['preu'] * $compra['quantitat'] ?></td>
+
+                                <!--Saves the total price for every item and stores the sum of all of them-->
                                 <?php $total += $compra['preu'] * $compra['quantitat'] ?>
                                 <td>
                                     <a class="btn btn-secondary" href="modificar.php?id=<?php echo $compra['compra_id'] ?>"><i class="fas fa-pen-alt"></i></a>

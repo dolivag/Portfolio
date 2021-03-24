@@ -12,21 +12,25 @@ and open the template in the editor.
     require_once 'controllers/compres.php';
     $compra = new Compra;
 
+    //Uses the GET method to save the id
     $id = $_GET['id'];
 
-    // Show task
+    //Saves the data with id key into an object in order to display it later
     $data = $compra->show($id);
 
     ?>
+
+    <!--Modify header page: title and description-->
     <div class="container mx-auto">
         <div class="page-header">
             <h1><i class="fas fa-exchange-alt"></i> Modificar article</h1>
         </div>
         <p>Canvia nom, quantitat i/o preu de l'article escollit</p>
-
     </div>
+
+    <!--Formulary and buttons to update the shopping item. Include the button to go back to the main page-->
     <div class="container p-6">
-        <!-- formulario -->
+        <!--Form-->
         <div class="col-md-6">
             <form method="POST" action="request/editRequest.php?id=<?php echo $data['compra_id']; ?>">
                 <div class="form-group">
