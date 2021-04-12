@@ -16,12 +16,13 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->hasCookie('userName')) {
+
+        /*if ($request->hasCookie('userName')) {
             echo '<nav class="navbar navbar-inverse" style="color: white;">';
-            echo $request->cookie('userName');
+            //echo $request->cookie('userName');
             echo '</nav>';
             return $next($request);
-        }
+        }*/
         return $next($request);
     }
 }

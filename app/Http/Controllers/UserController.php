@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -22,9 +23,10 @@ class UserController extends Controller
         if ($validation->fails()) {
             return redirect('login')->withErrors($validation)->withInput();
         } else {
-            $user_cookie = cookie('userName', $request->input('username'), 60 * 24);
+            //$user_cookie = cookie('userName', $request->input('username'), 60 * 24);
+            Cookie::queue(Cookie::make('userName', $request->input('username'), 60 * 24));
 
-            return response(view('auth/loginSuccess'))->withCookie($user_cookie);
+            return response(view('auth/loginSuccess')); //->withCookie($user_cookie);
         }
     }
 

@@ -33,7 +33,7 @@ class Kernel extends HttpKernel
     protected $middlewareGroups = [
         'web' => [
             /*As the project is in developer environment, there's no need to encrypt the cookies*/
-            //\App\Http\Middleware\EncryptCookies::class,
+            \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
