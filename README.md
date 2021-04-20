@@ -2,6 +2,7 @@
     <div class="container">
         <h1 class="display-4">Barcelona Activa IT-Academy</h1>
         <h2 class="display-4">Sprint 11 - Laravel DB</h2>
+        <small> Daniel Oliva Gómez </small>
         <h3>Nivell 1</h3>
         <h4>Exercici 1</h4>
         <p>Crear una aplicació, per la gestió d'empleats, aplicant el patró de disseny de software MVC(Model-Vista-Controlador).</p>
