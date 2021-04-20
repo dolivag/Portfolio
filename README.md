@@ -1,3 +1,30 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Barcelona Activa IT-Academy</h1>
+        <h2 class="display-4">Sprint 11 - Laravel DB</h2>
+        <h3>Nivell 1</h3>
+        <h4>Exercici 1</h4>
+        <p>Crear una aplicació, per la gestió d'empleats, aplicant el patró de disseny de software MVC(Model-Vista-Controlador).</p>
+        <p>Definir les rutes principals que tindrà el nostre lloc web. El domini ha de tindre el CRUD al complet (Create, Read, Update, Delete), utilitzant els verbs HTTP associats.</p>
+        <h4>Exercici 2</h4>
+        <p>Crea les vistes php y associa-la a cadascuna de las rutes.</p>
+        <p>Defineix els Models de dades, middleware i controllers que consideres necessaris. Recorda que la interacció amb la base de dades es realitzarà per mitjà del ORM Eloquent i per tant els objectes seran persistits únicament en memòria.</p>
+        <h4>Exercici 3</h4>
+        <p>Crear els formularis necessaris per poder realitzar el CRUD sobre el sistema de gestió d'empleats. Heu de validar que la informació introduïda a l'usuari sigui correcta.</p>
+        <h3>Nivell 2</h3>
+        <h4>Exercici 4</h4>
+        <p>Crea una petició HTTP especial que busqui empleats per feina.</p>
+        <h4>Exercici 5</h4>
+        <p>Defineix la vista home de benvinguda a l’aplicació e introdueix una navbar.</p>
+        <p>Crea un sistema que gestiona l'error 404 a nivell de projecte. Podeu utilitzar la funció Resposta i la redirecció de Laravel.</p>
+        <h3>Nivell 3</h3>
+        <h4>Exercici 6</h4>
+        <p>Afegeix la vista de login, registre i recuperació de contrasenya que l'usuari necessita per accedir a l'aplicació.</p>
+        <h4>Exercici 7</h4>
+        <p>Agafeu les dades d'inici de sessió al sistema de galetes de Laravel. En cadascuna de les vistes has d'incrustar al navbar el nom d'usuari registrat.</p>
+    </div>
+</div>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
