@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Painting;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 
 class PaintingsController extends Controller
@@ -12,9 +13,12 @@ class PaintingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $shop = Shop::find($id);
+        $paintings = $shop->paintings()->get();
+
+        return response()->json(compact('paintings'), 201);
     }
 
     /**
@@ -33,17 +37,19 @@ class PaintingsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $painting = new Painting;
 
         $painting->author = $request->author;
         $painting->name = $request->name;
-        $painting->shop_id = $request->shop_id;
+        $painting->shop_id = $id;
         $painting->price = $request->price;
         $painting->arrive_shop = $request->arrive_shop;
 
         $painting->save();
+
+        return response()->json(compact('painting'), 201);
     }
 
     /**
@@ -52,10 +58,13 @@ class PaintingsController extends Controller
      * @param  \App\Models\Painting  $painting
      * @return \Illuminate\Http\Response
      */
-    public function show(Painting $painting)
+    public function show($id)
     {
-        return Painting::where('id', $painting->id)->get();
+        $painting = Painting::find($id);
+
+        return response()->json(compact('painting'), 200);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -75,9 +84,12 @@ class PaintingsController extends Controller
      * @param  \App\Models\Painting  $painting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Painting $painting)
+    public function update(Request $request, $id)
     {
-        //
+        $painting = Painting::findOrFail($id);
+
+        $painting->update($request->all());
+        return response()->json(compact('painting'), 200);
     }
 
     /**
@@ -86,8 +98,17 @@ class PaintingsController extends Controller
      * @param  \App\Models\Painting  $painting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Painting $painting)
+    public function delete($id)
     {
-        //
+        $painting = Painting::where('id', $id)->delete();
+
+        return response()->json(null, 204);
+    }
+
+    public function burn_all($id)
+    {
+        $painting = Painting::where('shop_id', $id)->delete();
+
+        return response()->json(null, 204);
     }
 }

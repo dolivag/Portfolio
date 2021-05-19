@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "9443e73f-e0dc-414a-af8c-9e28e6c68b6c",
+		"name": "Sprint14-Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/shops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/shops",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops"
+					]
+				},
+				"description": "Get list of shops"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/shops?name=Kuadros&capacity=15",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/shops?name=Kuadros&capacity=15",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Kuadros"
+						},
+						{
+							"key": "capacity",
+							"value": "15"
+						}
+					]
+				},
+				"description": "POST Create a shop"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/shops/4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/shops/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops",
+						"4"
+					]
+				},
+				"description": "GET Show a shop by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/shops/4?name=Los Cuadros de Tere&capacity=12",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/shops/4?name=Los Cuadros de Tere&capacity=12",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops",
+						"4"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Los Cuadros de Tere"
+						},
+						{
+							"key": "capacity",
+							"value": "12"
+						}
+					]
+				},
+				"description": "PUT Update shop data"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/shops/3",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/shops/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops",
+						"3"
+					]
+				},
+				"description": "DELETE Delete a shop"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/shops/2/pictures",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/shops/2/pictures",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops",
+						"2",
+						"pictures"
+					]
+				},
+				"description": "GET List of paintings from a shop "
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/shops/2/pictures",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/shops/2/pictures?author=Dani Oliva&name=Microcosmos al Óleo&shop_id=2&price=5.25&arrive_shop=2021-05-18",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops",
+						"2",
+						"pictures"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "Dani Oliva"
+						},
+						{
+							"key": "name",
+							"value": "Microcosmos al Óleo"
+						},
+						{
+							"key": "shop_id",
+							"value": "2"
+						},
+						{
+							"key": "price",
+							"value": "5.25"
+						},
+						{
+							"key": "arrive_shop",
+							"value": "2021-05-18"
+						}
+					]
+				},
+				"description": "POST Creating a new painting for a shop"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/pictures/12",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/pictures/13",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pictures",
+						"13"
+					]
+				},
+				"description": "GET Show painting information"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/pictures/12?author=Kandinsky&name=Olive oil&shop_id=1&price=1200&arrive_shop=2015-05-26",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/pictures/12?author=Kandinsky&name=Olive oil&shop_id=1&price=1200&arrive_shop=2015-05-26",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pictures",
+						"12"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "Kandinsky"
+						},
+						{
+							"key": "name",
+							"value": "Olive oil"
+						},
+						{
+							"key": "shop_id",
+							"value": "1"
+						},
+						{
+							"key": "price",
+							"value": "1200"
+						},
+						{
+							"key": "arrive_shop",
+							"value": "2015-05-26"
+						}
+					]
+				},
+				"description": "PUT Update a picture within a shop"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/pictures/9",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/pictures/9",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pictures",
+						"9"
+					]
+				},
+				"description": "DELETE a picture"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/shops/2/pictures",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/shops/2/pictures",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops",
+						"2",
+						"pictures"
+					]
+				},
+				"description": "DELETE all pictures from a shop"
+			},
+			"response": []
+		}
+	]
+}

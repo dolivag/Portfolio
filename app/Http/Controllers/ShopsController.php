@@ -15,7 +15,7 @@ class ShopsController extends Controller
     public function index()
     {
         $shops = Shop::all();
-        return $shops;
+        return response()->json(compact('shops'), 200);
     }
 
     /**
@@ -42,7 +42,7 @@ class ShopsController extends Controller
         $shop->capacity = $request->capacity;
         $shop->save();
 
-        return response()->json($shop, 201);
+        return response()->json(compact('shop'), 201);
     }
 
     /**
@@ -54,7 +54,7 @@ class ShopsController extends Controller
     public function show($id)
     {
         $shop = Shop::find($id);
-        return response()->json($shop, 200);
+        return response()->json(compact('shop'), 200);
     }
 
     /**
@@ -80,7 +80,7 @@ class ShopsController extends Controller
         $shop = Shop::findOrFail($id);
         $shop->update($request->all());
 
-        return response()->json($shop, 200);
+        return response()->json(compact('shop'), 200);
     }
 
     /**
@@ -94,6 +94,6 @@ class ShopsController extends Controller
         $shop = Shop::findOrFail($id);
         $shop->delete();
 
-        return response(null, 204);
+        return response()->json(null, 204);
     }
 }
