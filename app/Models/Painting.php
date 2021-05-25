@@ -16,6 +16,7 @@ class Painting extends Model
         'shop_id',
         'price',
         'arrive_shop',
+        'image',
     ];
 
     public function shop()

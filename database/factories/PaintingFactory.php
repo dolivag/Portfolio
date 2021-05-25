@@ -28,6 +28,7 @@ class PaintingFactory extends Factory
             'shop_id' => $this->faker->randomElement([1, 2, 3, 4, 5]),
             'price' => $this->faker->numberBetween($min = 10, $max = 1000),
             'arrive_shop' => $this->faker->date(),
+            'image' => $this->faker->imageUrl(),
         ];
     }
 }

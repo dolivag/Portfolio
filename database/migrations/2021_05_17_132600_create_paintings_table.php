@@ -21,6 +21,7 @@ class CreatePaintingsTable extends Migration
             $table->foreign('shop_id')->references('id')->on('shops')->onDelete('cascade')->onUpdate('cascade');
             $table->float('price');
             $table->date('arrive_shop');
+            $table->string('image');
             $table->timestamps();
         });
     }

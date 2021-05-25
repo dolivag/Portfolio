@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Painting;
 use App\Models\Shop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class PaintingsController extends Controller
 {
@@ -18,7 +21,7 @@ class PaintingsController extends Controller
         $shop = Shop::find($id);
         $paintings = $shop->paintings()->get();
 
-        return response()->json(compact('paintings'), 201);
+        return view('paintings', compact('paintings'));
     }
 
     /**
@@ -86,10 +89,13 @@ class PaintingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $painting = Painting::findOrFail($id);
+        if (Auth::user()->hasRole('Administrador')) {
+            $painting = Painting::findOrFail($id);
 
-        $painting->update($request->all());
-        return response()->json(compact('painting'), 200);
+            $painting->update($request->all());
+            return response()->json(compact('painting'), 200);
+        }
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
 
     /**
@@ -100,15 +106,21 @@ class PaintingsController extends Controller
      */
     public function delete($id)
     {
-        $painting = Painting::where('id', $id)->delete();
+        if (Auth::user()->hasRole('Administrador')) {
+            $painting = Painting::where('id', $id)->delete();
 
-        return response()->json(null, 204);
+            return response()->json(null, 204);
+        }
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
 
     public function burn_all($id)
     {
-        $painting = Painting::where('shop_id', $id)->delete();
+        if (Auth::user()->hasRole('Administrador')) {
+            $painting = Painting::where('shop_id', $id)->delete();
 
-        return response()->json(null, 204);
+            return response()->json(null, 204);
+        }
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
 }

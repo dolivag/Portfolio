@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Shop;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ShopsController extends Controller
 {
@@ -37,10 +39,7 @@ class ShopsController extends Controller
     public function store(Request $request)
     {
         //Nuevo objeto de la clase Shop
-        $shop = new Shop;
-        $shop->name = $request->name;
-        $shop->capacity = $request->capacity;
-        $shop->save();
+        $shop = Shop::create($request->all());
 
         return response()->json(compact('shop'), 201);
     }
@@ -77,10 +76,16 @@ class ShopsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $shop = Shop::findOrFail($id);
-        $shop->update($request->all());
+        if (Auth::user()->hasRole('Administrador')) {
+            $shop = Shop::findOrFail($id);
+            $shop->update($request->all());
 
-        return response()->json(compact('shop'), 200);
+            return response()->json(compact('shop'), 200);
+        } else {
+            return response()->json([
+                'error' => 'Unauthorized',
+            ], 401);
+        }
     }
 
     /**
@@ -91,9 +96,13 @@ class ShopsController extends Controller
      */
     public function delete($id)
     {
+        //if (Auth::user()->hasRole('Administrador')) {
         $shop = Shop::findOrFail($id);
         $shop->delete();
 
         return response()->json(null, 204);
+        //}
+
+        //return response()->json(['error' => 'Unauthorized'], 401);
     }
 }
