@@ -90,7 +90,7 @@
                             <div class="row">
                                 <div class="form-group">
                                     <div id="recover-pass" class="pb-5">
-                                        <a disabled href="/recover" class="text-info">Recuperar contraseña</a>
+                                        <a disabled href="#" class="text-info">Recuperar contraseña</a>
                                     </div>                                 
                                 </div>                               
                             </div>

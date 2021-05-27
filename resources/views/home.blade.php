@@ -32,7 +32,10 @@
           </li>
           @else 
           <li class="nav-item">
-            <a class="nav-link" href="api/logout">Cerrar sesión</a>
+            <form action="{{ route('logout') }}" method="post">
+              <input type="hidden" value={{csrf_token()}}>
+                <button type="submit" class="btn text-center btn-secondary mx-auto">Cerrar sesión</button>
+            </form>
           </li>
           @endif
         </ul>

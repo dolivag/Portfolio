@@ -48,5 +48,5 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('shops/{id}/pictures', [PaintingsController::class, 'burn_all']);
 
     //Logout
-    Route::post('logout', [PassportController::class, 'logout']);
+    Route::post('logout', [PassportController::class, 'logout'])->name('logout');
 });
