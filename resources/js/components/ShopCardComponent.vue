@@ -46,7 +46,8 @@
             </button>
           </div>
           <button
-            v-on:click="seePaintings"
+            type="button"
+            v-on:click="buttonClicked"
             class="btn btn-sm btn-outline-secondary"
           >
             VER
@@ -71,12 +72,19 @@ export default {
   },
   methods: {
     deleteShop() {
+      axios.defaults.headers.common = {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      };
       axios.delete("/api/shops/" + this.shop.id).then(() => {
         this.$emit("delete");
       });
     },
     seePaintings() {
       this.$emit("seePaintings");
+    },
+    buttonClicked() {
+      this.$emit("buttonClicked");
+      this.$emit("giveId");
     },
   },
 };

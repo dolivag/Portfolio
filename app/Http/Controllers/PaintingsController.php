@@ -21,7 +21,7 @@ class PaintingsController extends Controller
         $shop = Shop::find($id);
         $paintings = $shop->paintings()->get();
 
-        return view('paintings', compact('paintings'));
+        return response()->json(compact('paintings'));
     }
 
     /**
@@ -116,11 +116,11 @@ class PaintingsController extends Controller
 
     public function burn_all($id)
     {
-        if (Auth::user()->hasRole('Administrador')) {
-            $painting = Painting::where('shop_id', $id)->delete();
+        //if (Auth::user()->hasRole('Administrador')) {
+        $painting = Painting::where('shop_id', $id)->delete();
 
-            return response()->json(null, 204);
-        }
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json(['message' => 'Borrados con éxito!'], 204);
+        //}
+        //return response()->json(['error' => 'Unauthorized'], 401);
     }
 }

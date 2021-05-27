@@ -60,12 +60,17 @@ export default {
   props: {
     shop: {
       type: Object,
-      required: true,
+      required: false,
+    },
+    painting: {
+      type: Object,
+      required: false,
     },
   },
   data() {
     return {};
   },
   methods: {},
+  watch: {},
 };
 </script>

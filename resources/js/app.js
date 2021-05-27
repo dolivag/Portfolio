@@ -2,8 +2,9 @@ require('./bootstrap');
 
 import VueRouter from 'vue-router'
 import { createApp } from 'vue';
-import ShopComponent from './components/ShopComponent'
-import PaintingsComponent from './components/PaintingsComponent'
+import ShopComponent from './components/ShopComponent';
+import PaintingsComponent from './components/PaintingsComponent';
+import MainComponent from './components/MainComponent.vue';
 
 const router = new VueRouter({
     mode: 'history',
@@ -21,10 +22,11 @@ const router = new VueRouter({
     ]
 })
 
+export default router;
+
 
 createApp({
     components: {
-        ShopComponent,
-        PaintingsComponent,
+        MainComponent,
     }
 }).use(router).mount('#app')

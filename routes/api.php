@@ -30,22 +30,23 @@ Route::post('recover', [PassportController::class, 'sendResetEmail']);
 
 
 
-//Route::middleware('auth:api')->group(function () {
-//Shops
-Route::get('shops', [ShopsController::class, 'index']);
-Route::get('shops/{id}', [ShopsController::class, 'show']);
-Route::get('shops/create', [ShopsController::class, 'create']);
-Route::post('shops', [ShopsController::class, 'store']);
-Route::put('shops/{id}', [ShopsController::class, 'update']);
-Route::delete('shops/{id}', [ShopsController::class, 'delete']);
+Route::middleware('auth:api')->group(function () {
+    //Shops
+    Route::get('shops', [ShopsController::class, 'index']);
+    Route::get('shops/{id}', [ShopsController::class, 'show']);
+    Route::get('shops/create', [ShopsController::class, 'create']);
+    Route::post('shops', [ShopsController::class, 'store']);
+    Route::put('shops/{id}', [ShopsController::class, 'update']);
+    Route::delete('shops/{id}', [ShopsController::class, 'delete']);
 
-//Paintings
-Route::post('shops/{id}/pictures', [PaintingsController::class, 'store']);
-Route::get('shops/{id}/pictures', [PaintingsController::class, 'index']);
-Route::get('pictures/{id}', [PaintingsController::class, 'show']);
-Route::put('pictures/{id}', [PaintingsController::class, 'update']);
-Route::delete('pictures/{id}', [PaintingsController::class, 'delete']);
-Route::delete('shops/{id}/pictures', [PaintingsController::class, 'burn_all']);
+    //Paintings
+    Route::post('shops/{id}/pictures', [PaintingsController::class, 'store']);
+    Route::get('shops/{id}/pictures', [PaintingsController::class, 'index']);
+    Route::get('pictures/{id}', [PaintingsController::class, 'show']);
+    Route::put('pictures/{id}', [PaintingsController::class, 'update']);
+    Route::delete('pictures/{id}', [PaintingsController::class, 'delete']);
+    Route::delete('shops/{id}/pictures', [PaintingsController::class, 'burn_all']);
 
-//Logout
-Route::post('logout', [PassportController::class, 'logout']);
+    //Logout
+    Route::post('logout', [PassportController::class, 'logout']);
+});

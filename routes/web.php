@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PaintingsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PassportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,15 @@ Route::get('/', function () {
 });
 
 Route::get('/shop/{id}/paintings', [PaintingsController::class, 'index']);
+
+Route::get('login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('login', [PassportController::class, 'login'])->name('login');
+
+Route::get('register', function () {
+    return view('register');
+})->name('register');
+
+Route::post('register', [PassportController::class, 'register']);

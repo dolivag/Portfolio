@@ -34,6 +34,9 @@ export default {
   },
   methods: {
     newShop() {
+      axios.defaults.headers.common = {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      };
       axios.post("/api/shops", this.shop).then((response) => {
         this.$emit("add", response.data.shop);
       });
