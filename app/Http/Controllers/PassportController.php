@@ -21,6 +21,8 @@ class PassportController extends Controller
             'password' => $request->password
         ];
         if (auth()->attempt($data)) {
+
+
             $token = auth()->user()->createToken('Personal Access Token')->accessToken;
             //return redirect('/')->response()->json(['token' => $token], 200);
             return view('home')->with(['token' => $token]);
