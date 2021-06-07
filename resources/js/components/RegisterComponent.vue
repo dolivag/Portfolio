@@ -1,14 +1,15 @@
 <template>
-  <form role="form" action="{{ route('register') }}" method="post">
+  <h2>Regístrate <small>¡Es gratis!</small></h2>
+  <form role="form" v-on:submit.prevent="register()">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
           <input
             type="text"
             name="name"
-            id="name"
             class="form-control input-sm"
             placeholder="Nombre de usuario"
+            v-model="user.name"
           />
         </div>
       </div>
@@ -21,6 +22,7 @@
         id="email"
         class="form-control input-sm"
         placeholder="Correo electrónico"
+        v-model="user.email"
       />
     </div>
 
@@ -33,17 +35,7 @@
             id="password"
             class="form-control input-sm"
             placeholder="Contraseña"
-          />
-        </div>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6">
-        <div class="form-group">
-          <input
-            type="password"
-            name="password_confirmation"
-            id="password_confirmation"
-            class="form-control input-sm"
-            placeholder="Confirma tu contraseña"
+            v-model="user.password"
           />
         </div>
       </div>
@@ -57,6 +49,7 @@
             id="role"
             name="role"
             required
+            v-model="user.role"
           >
             <option value="administrador">Administrador</option>
             <option value="usuario">Usuario</option>
@@ -68,13 +61,51 @@
     <input type="submit" value="Registro" class="btn btn-info btn-block" />
     <br />
     <p class="text-center">
-      ¿Ya tienes una cuenta? <a href="/login">Accede</a>
+      ¿Ya tienes una cuenta?
+      <router-link
+        class="nav-link"
+        data-toggle="collapse"
+        :to="{ name: 'login' }"
+      >
+        Accede
+      </router-link>
     </p>
   </form>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      user: {
+        name: "",
+        email: "",
+        password: "",
+        role: "",
+      },
+    };
+  },
+  methods: {
+    register() {
+      if (this.user.name == "") {
+        delete this.user.name;
+      }
+      axios
+        .post("api/players", this.user)
+        .then((response) => {
+          this.user.name = response.data.user.name;
+          this.user.email = response.data.user.email;
+          localStorage.username = this.user.name;
+          localStorage.token = response.data.token;
+          localStorage.userId = response.data.user.id;
+          this.$router.push({ name: "player" });
+        })
+        .catch((e) => {
+          console.log(e, ":(");
+        });
+    },
+  },
+};
 </script>
 
 <style>

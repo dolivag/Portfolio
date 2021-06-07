@@ -19,15 +19,12 @@ class UserSeeder extends Seeder
         $role1 = Role::create(['name' => 'Administrador']);
         $role2 = Role::create(['name' => 'Usuario']);
 
-        Permission::create(['name' => 'delete_reservation']);
-        Permission::create(['name' => 'update_reservation']);
-        Permission::create(['name' => 'delete_rooms']);
-        Permission::create(['name' => 'update_rooms']);
+        //Solo el administrador podrá ver las páginas de ganador y perdedor por separado del ranking general
+        Permission::create(['name' => 'check_winner']);
+        Permission::create(['name' => 'check_looser']);
 
-        $role1->givePermissionTo('delete_reservation');
-        $role1->givePermissionTo('update_reservation');
-        $role1->givePermissionTo('delete_rooms');
-        $role1->givePermissionTo('update_rooms');
+        $role1->givePermissionTo('check_winner');
+        $role1->givePermissionTo('check_looser');
 
         $user1 = new User();
         $user1->name = "DaniOliva";

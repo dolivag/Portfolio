@@ -15,11 +15,50 @@
         <a class="navbar-brand" href="#">{{ username }}</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="/">Portada</a></li>
+        <ul class="nav navbar-nav navbar-left">
+          <li class="nav-item">
+            <router-link
+              tag="button"
+              class="nav-item"
+              :to="{ name: 'ranking' }"
+              v-if="loggedIn"
+            >
+              Ranking
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <!--Enlace de Jugar solo disponible cuando se está logueado-->
+            <router-link
+              class="nav-item"
+              :to="{ name: 'player' }"
+              v-if="$router.currentRoute.name != 'player' && loggedIn"
+            >
+              ¡Jugar!
+            </router-link>
+          </li>
+          <!--Los dos enlaces de debajo se muestran solo cuando isAdmin es true, es decir, cuando el usuario logueado tiene en back rol de Administrador-->
+          <li class="nav-item">
+            <router-link
+              class="nav-item"
+              :to="{ name: 'winner' }"
+              v-if="isAdmin == 'true'"
+            >
+              ¿Quién es el ganador?
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link
+              class="nav-item"
+              :to="{ name: 'looser' }"
+              v-if="isAdmin == 'true'"
+            >
+              ¿Quién es el perdedor?
+            </router-link>
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
+            <!--Link para el path Register cuando no se tiene sesión iniciada-->
             <router-link
               class="nav-link"
               :to="{ name: 'register' }"
@@ -32,9 +71,7 @@
             <router-link
               v-if="!loggedIn"
               class="nav-link"
-              data-toggle="collapse"
               :to="{ name: 'login' }"
-              @loggedIn="logIn"
             >
               Inicia sesión
             </router-link>
@@ -59,20 +96,22 @@
   </nav>
   <div class="container">
     <router-view></router-view>
-    <player-component v-if="loggedIn"></player-component>
   </div>
 </template>
 
 <script>
 import PlayerComponent from "./PlayerComponent.vue";
+import RankingComponent from "./RankingComponent.vue";
 export default {
   components: {
     "player-component": PlayerComponent,
+    "ranking-component": RankingComponent,
   },
   data() {
     return {
       loggedIn: false,
       username: "",
+      isAdmin: localStorage.getItem("isAdmin"),
     };
   },
   watch: {
@@ -80,6 +119,7 @@ export default {
       if (localStorage.getItem("username")) {
         this.username = localStorage.getItem("username");
         this.loggedIn = true;
+        this.isAdmin = localStorage.getItem("isAdmin");
       } else {
         this.username = "";
       }
@@ -95,27 +135,30 @@ export default {
         localStorage.clear();
         this.loggedIn = false;
         this.username = "";
-        this.$router.push({ name: "player" });
+        this.isAdmin = false;
+        this.$router.push({ name: "login" });
       });
-    },
-    logIn() {
-      this.loggedIn = true;
     },
   },
   mounted() {
+    console.log(localStorage.getItem("token"));
+    console.log(localStorage.getItem("isAdmin"), ":DDDDDDDDDDDDDDDDDDDDDDD");
+    this.isAdmin = localStorage.getItem("isAdmin");
     if (localStorage.getItem("token")) {
-      //colocamos el bearer token
       axios.defaults.headers.common = {
-        Authorization: "Bearer " + localStorage.getItem("player_token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
       };
-      //refresca el token
-      axios.post("api/refresh/").then((response) => {
-        console.log(response.data.token, "RETOKENNNN");
+      axios.post("api/refresh").then((response) => {
         if (response.data.success) {
           localStorage.setItem("token", response.data.token);
+          this.loggedIn = true;
+          this.isAdmin = localStorage.getItem("isAdmin");
+          console.log(this.isAdmin);
+          this.$router.push({ name: "player" });
         } else {
           localStorage.clear();
           this.loggedIn = false;
+          this.isAdmin = false;
         }
       });
     } else {

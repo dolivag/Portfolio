@@ -1,11 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
-import PlayerComponent from './PlayerComponent';
-import LoginComponent from './LoginComponent';
-import RegisterComponent from './RegisterComponent';
-import MainComponent from './MainComponent';
+import PlayerComponent from './PlayerComponent.vue';
+import LoginComponent from './LoginComponent.vue';
+import RegisterComponent from './RegisterComponent.vue';
+import MainComponent from './MainComponent.vue';
+import RankingComponent from './RankingComponent.vue';
+import WinnerComponent from './WinnerComponent.vue';
+import LooserComponent from './LooserComponent.vue';
 
 
 const routeInfos = [
+
 
     {
         path: '/player',
@@ -21,6 +25,21 @@ const routeInfos = [
         path: '/register',
         name: 'register',
         component: RegisterComponent,
+    },
+    {
+        path: '/ranking',
+        name: 'ranking',
+        component: RankingComponent,
+    },
+    {
+        path: '/winner',
+        name: 'winner',
+        component: WinnerComponent,
+    },
+    {
+        path: '/looser',
+        name: 'looser',
+        component: LooserComponent,
     }
 ]
 

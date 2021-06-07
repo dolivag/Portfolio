@@ -36,5 +36,5 @@ Route::middleware('jwt.auth')->group(function () {
     Route::get('players/ranking/loser', [UserController::class, 'showLoser']);
     Route::get('players/ranking/winner', [UserController::class, 'showWinner']);
     Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
-    Route::post('/refresh', [AuthController::class, 'refreshToken']);
+    Route::post('refresh', [AuthController::class, 'refreshToken']);
 });

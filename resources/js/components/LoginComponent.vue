@@ -1,5 +1,5 @@
 <template>
-  <h2>Inicia sesión</h2>
+  <h2>Inicia sesión <small>¡Y empieza a jugar!</small></h2>
   <form class="py-3" v-on:submit.prevent="login()">
     <div class="form-group py-3">
       <label for="email">Email</label>
@@ -47,6 +47,7 @@ export default {
         password: "",
         remember: false,
       },
+      isAdmin: localStorage.getItem("isAdmin"),
     };
   },
   methods: {
@@ -54,8 +55,10 @@ export default {
       axios.post("/api/login", this.user).then((response) => {
         localStorage.username = response.data.user.name;
         localStorage.token = response.data.token;
+        localStorage.setItem("isAdmin", response.data.user.isAdmin);
+        this.isAdmin = localStorage.getItem("isAdmin");
+        console.log(localStorage.getItem("isAdmin"), "PRUEBA");
         localStorage.userId = response.data.user.id;
-        console.log(localStorage.getItem("username"));
         this.$router.push({ name: "player" });
       });
     },

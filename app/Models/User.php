@@ -26,7 +26,7 @@ class User extends Authenticatable implements JWTSubject
         'password',
     ];
 
-    protected $appends = ['success_rate'];
+    protected $appends = ['success_rate', 'isAdmin'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -67,7 +67,14 @@ class User extends Authenticatable implements JWTSubject
                 $victories++;
             }
         }
-        return (100 * $victories) / $n;
+        return round(((100 * $victories) / $n), 2);
+    }
+
+    public function getIsAdminAttribute()
+    {
+        $user = User::find($this->id);
+
+        return $user->hasRole('Administrador');
     }
 
     /**

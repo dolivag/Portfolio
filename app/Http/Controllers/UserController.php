@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class UserController extends Controller
 {
     /**
@@ -72,6 +73,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         if (Auth::user()->id != $id) {
             return response()->json([
                 'success' => 'false',
@@ -79,7 +81,7 @@ class UserController extends Controller
             ], 401);
         }
 
-        $user = Auth::user();
+        $user = User::find($id);
 
         $user->name = $request['name'];
 
@@ -87,7 +89,7 @@ class UserController extends Controller
         return response()->json([
             'success' => 'true',
             'user' => $user,
-        ], 401);
+        ], 201);
     }
 
     /**
@@ -105,12 +107,20 @@ class UserController extends Controller
     {
         $podium = User::all();
 
+        //Intentando cambiar el id a string para poder evitar el reordenamiento en JSON.parse (frontend)
+        /*foreach ($podium as $user) {
+            $user->id = (string)$user->id;
+        }*/
 
+        //Ordenando la lista de jugadores por ratio de éxito. Se devuelve como float para que se pueda ordenar en front
         $podium = $podium->sortByDesc(function ($user) {
-            return $user->success_rate;
+            return floatVal($user->success_rate);
         });
 
         $avg = $podium->avg('success_rate');
+
+        //Para evitar que se pierda el orden en front (axios está modificando el orden en que se envía)
+        $podium = json_encode($podium);
 
         return response()->json([
             'avg' => $avg,

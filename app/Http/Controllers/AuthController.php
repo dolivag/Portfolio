@@ -48,30 +48,45 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+
+        //Se crean las credenciales
         $credentials = $request->all();
 
-        $validation = Validator::make($credentials, [
-            'name' => 'required|min:4',
-            'email' => 'required|email',
+        //Se validan los datos introducidos
+        $validation = Validator::make($request->all(), [
+            'name' => 'sometimes|required',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8'
         ]);
 
-        if ($validation->fails()) {
-            return redirect('register')->withErrors($validation)->withInput();
+        //Si no se introduce el nombre, este será 'Anónimo'
+        if (!isset($request["name"])) {
+            $credentials["name"] = 'Anónimo';
         }
 
+        //Si falla la validación se retornan los errores
+        if ($validation->fails()) {
+            return response()->json([
+                'success' => 'false',
+                'errors' => $validation->errors()->toJson()
+            ], 400);
+        };
+
+        //Se crea el usuario con las credenciales
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'name' => $credentials['name'],
+            'email' => $credentials['email'],
+            'password' => bcrypt($credentials['password'])
         ]);
 
+        //Se asigna un rol
         if (strtolower($request->role) == 'administrador') {
             $user->assignRole('Administrador');
         } elseif (strtolower($request->role) == 'usuario') {
             $user->assignRole('Usuario');
         }
 
+        //Se crea un JWToken para el usuario
         $token = JWTAuth::fromUser($user);
 
         return response()->json([
@@ -110,12 +125,12 @@ class AuthController extends Controller
         } catch (TokenExpiredException $ex) {
             return response()->json([
                 'success' => false,
-                'message' => 'Need to login again (expired Token)'
+                'message' => 'Expired token'
             ], 422);
         } catch (TokenBlacklistedException $ex) {
             return response()->json([
                 'success' => false,
-                'message' => 'Need to login again! (blacklisted)'
+                'message' => 'BlackList'
             ], 422);
         }
     }
